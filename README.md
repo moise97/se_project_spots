@@ -1,4 +1,4 @@
-# Triple Peaks Coffee Shop
+# Spots
 
 This is the second project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
 
@@ -10,6 +10,7 @@ This is the second project of the Software Engineering program at TripleTen. It 
 - Flat BEM file structure
 - A custom form
 - CSS animation and transform
+-
 
 ## Plan on improving the project
 

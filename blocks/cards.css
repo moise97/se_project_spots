@@ -5,6 +5,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   gap: 40px 20px;
-  border-bottom: 1px solid;
-  padding-bottom: 60px;
+  border-bottom: 1px solid #21212166;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 288px) {
+  .cards__list {
+    height: 318px;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px;
+    justify-content: center;
+  }
 }

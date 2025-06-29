@@ -10,7 +10,10 @@ This is the second project of the Software Engineering program at TripleTen. It 
 - Flat BEM file structure
 - A custom form
 - CSS animation and transform
--
+
+# links
+
+https://tripleten.com/trainer/web/lesson/5de5bb2f-93ca-419e-a0a0-10376b4712bc/?from=program
 
 ## Plan on improving the project
 

@@ -15,6 +15,10 @@ This is the second project of the Software Engineering program at TripleTen. It 
 
 https://tripleten.com/trainer/web/lesson/5de5bb2f-93ca-419e-a0a0-10376b4712bc/?from=program
 
+# link for the video
+
+-https://drive.google.com/file/d/1K_Kfwh-7xRiyaCGlSvr3afaQXshjygB2/view?usp=drivesdk
+
 ## Plan on improving the project
 
 Add your ideas here :)

@@ -8,8 +8,7 @@
 .profile__column {
   display: flex;
   flex-direction: column;
-  height: 190px;
-  width: 420px;
+  max-width: 420px;
   justify-content: space-between;
 }
 
@@ -45,8 +44,7 @@
   padding: 18px 24px 18px 32px;
   border-radius: 8px;
   background: #212121;
-  border: none;
-  color: #fff;
+  color: #fcf5e5;
   font-size: 16px;
   margin-left: auto;
   flex: 0 0 auto;
@@ -63,6 +61,7 @@
   margin-right: 20px;
   height: 190px;
   width: 190px;
+  border-radius: 16px;
 }
 
 @media screen and (max-width: 627px) {
@@ -74,7 +73,7 @@
     padding-top: 20px;
   }
 
-  .profile_avatar {
+  .profile__avatar {
     width: 80px;
     height: 80px;
     margin-bottom: 12px;
@@ -113,10 +112,10 @@
     padding: 18px 32px 18px 32px;
     gap: 8px;
     width: 288px;
-    background-color: rgba(33, 33, 33, 1);
   }
   .profile__edit-button {
     margin-top: 32px;
     width: 137.34px;
+    margin-top: auto;
   }
 }

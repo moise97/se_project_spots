@@ -11,9 +11,9 @@ This is the second project of the Software Engineering program at TripleTen. It 
 - A custom form
 - CSS animation and transform
 
-# links
+# link to live site
 
-https://tripleten.com/trainer/web/lesson/5de5bb2f-93ca-419e-a0a0-10376b4712bc/?from=program
+https://moise97.github.io/se_project_spots/
 
 # link for the video
 

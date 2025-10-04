@@ -27,7 +27,10 @@
   right: 50px;
   height: 40px;
   width: 40px;
+  border: none;
+  background: transparent;
 }
+
 .modal__title {
   margin: 0 0 32px;
 }
@@ -41,6 +44,19 @@
 .modal__input {
   display: block;
   width: 100%;
+  padding: 16px 12px;
+  max-width: 630px;
+  border-radius: 9px;
+  color: #21212166;
+  opacity: 40%;
+}
+.modal__submit-button {
+  background: #212121;
+  color: #fff;
+  cursor: pointer;
+  padding: 18px 32px;
+  width: 156px;
+  border-radius: 8px;
 }
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.4);

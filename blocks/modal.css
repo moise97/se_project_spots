@@ -50,6 +50,7 @@
   border-radius: 9px;
   color: #21212166;
   opacity: 40%;
+  margin: 8px 0 0;
 }
 .modal__submit-button {
   background: #212121;
@@ -70,7 +71,19 @@
   background: #212121;
   color: #fff;
 }
-@media screen and (max-width: 300px) {
-}
-.modal {
+@media screen and (max-width: 630px) {
+  .modal__title {
+    color: red;
+    font-size: 20px;
+  }
+  .modal__container {
+    max-width: 300px;
+  }
+  .modal__submit-button {
+    max-width: 630px;
+    width: 100%;
+  }
+  .modal__close-button {
+    width: 40px;
+  }
 }

@@ -12,7 +12,7 @@
   padding: 10px;
 }
 .modal_is-opened {
-  visibility: visible;
+  visibility: hidden "";
 }
 .modal__container {
   max-width: 730px;

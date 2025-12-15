@@ -49,7 +49,7 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = editProfileNameInput.value;
   profileDescriptionElement.textContent = editProfiledescriptionInput.value;
-  ed.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 // trying things out //
@@ -66,6 +66,6 @@ function handleAddCardSubmit(evt) {
   console.log("Post title:", nameInput.value);
   console.log("Post link:", linkInput.value);
 
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);

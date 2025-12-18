@@ -1,3 +1,31 @@
+const initialcards = [
+  {
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Nothern Lights",
+
+    link: "https://unsplash.com/photos/aurora-borealis-over-a-snowy-forest-landscape-with-pine-trees-5_lSZqM4nMM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+  },
+  {
+    name: "Cozy rainy Night",
+    link: "https://unsplash.com/photos/raindrops-on-window-with-blurred-colorful-city-lights-0gTY-Qt00a4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+  },
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+];
+
 const editProfileButton = document.querySelector(".profile__edit-button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -69,3 +97,8 @@ function handleAddCardSubmit(evt) {
   closeModal(newPostModal);
 }
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
+
+initialcards.forEach(function (item) {
+  console.log(item.name);
+  console.log(item.link);
+});

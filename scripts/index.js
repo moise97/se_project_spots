@@ -1,16 +1,20 @@
 const initialCards = [
   {
+    name: "Golden Gate Bridge",
+    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
   {
-    name: "Nothern Lights",
+    name: "Restaurant terrace",
 
-    link: "https://unsplash.com/photos/aurora-borealis-over-a-snowy-forest-landscape-with-pine-trees-5_lSZqM4nMM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
   },
   {
-    name: "Cozy rainy Night",
-    link: "https://unsplash.com/photos/raindrops-on-window-with-blurred-colorful-city-lights-0gTY-Qt00a4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
   },
   {
     name: "A very long bridge, over the forest and through the trees",
@@ -88,17 +92,51 @@ const addCardFormElement = newPostModal.querySelector(".modal__form");
 
 const nameInput = addCardFormElement.querySelector("#caption-input");
 const linkInput = addCardFormElement.querySelector("#card-image-input");
+//first part of final part of project//
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitleElement = cardElement.querySelector(".card__title");
+  const cardImageElement = cardElement.querySelector(".card__image");
+
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+  cardTitleElement.textContent = data.name;
+
+  const cardlikebuttonElement = cardElement.querySelector(".card__like-button");
+  cardlikebuttonElement.addEventListener("click", () => {
+    cardlikebuttonElement.classList.toggle("card__like-button_active");
+  });
+  const cardDeleteButtonElement = cardElement.querySelector(
+    ".card__delete-button"
+  );
+  cardDeleteButtonElement.addEventListener("click", () => {
+    cardElement.remove();
+    cardElement = null;
+  });
+
+  return cardElement;
+}
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log("Post title:", nameInput.value);
-  console.log("Post link:", linkInput.value);
+
+  const inputValues = {
+    name: captionInputElement.value,
+    link: inputElement.value,
+  };
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
 
   closeModal(newPostModal);
 }
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach(function (item) {
-  console.log(item.name);
-  console.log(item.link);
+  const cardElement = getCardElement(item);
+  cardsList.append(cardElement);
 });

@@ -34,6 +34,17 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  /*todo style and hover state for DEL button*/
+}
+
+.card__delete-button_active {
+  background-image: url(../images/deleteDefaultbutton.svg);
+  opacity: 1;
+}
+.card__delete-button:hover {
+  opacity: 100%;
+  cursor: pointer;
+  background-image: url(../images/hoverdeletebutton.svg);
 }
 
 .card__like-button {

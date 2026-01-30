@@ -34,14 +34,14 @@ const editProfileButton = document.querySelector(".profile__edit-button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseButton = editProfileModal.querySelector(
-  ".modal__close-button"
+  ".modal__close-button",
 );
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
-  "#profile-name-input"
+  "#profile-name-input",
 );
 const editProfiledescriptionInput = editProfileModal.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 
 const newPostButton = document.querySelector(".profile__add-button");
@@ -51,7 +51,7 @@ const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
 const profileNameElement = document.querySelector(".profile__name");
 
 const profileDescriptionElement = document.querySelector(
-  ".profile__description"
+  ".profile__description",
 );
 
 function openModal(modal) {
@@ -92,6 +92,13 @@ const addCardFormElement = newPostModal.querySelector(".modal__form");
 
 const nameInput = addCardFormElement.querySelector("#caption-input");
 const linkInput = addCardFormElement.querySelector("#card-image-input");
+
+//last part of the project//
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButtton = previewModal.querySelector(".modal-close");
+const previewImageElement = previewModal.querySelector(".modal__image");
+const previewTitleElement = previewModal.querySelector(".modal__title");
+
 //first part of final part of project//
 
 const cardTemplate = document
@@ -108,15 +115,26 @@ function getCardElement(data) {
   cardTitleElement.textContent = data.name;
 
   const cardlikebuttonElement = cardElement.querySelector(".card__like-button");
+  const cardDeleteButtonElement = cardElement.querySelector(
+    ".card__delete-button",
+  );
+
   cardlikebuttonElement.addEventListener("click", () => {
     cardlikebuttonElement.classList.toggle("card__like-button_active");
   });
-  const cardDeleteButtonElement = cardElement.querySelector(
-    ".card__delete-button"
-  );
+
+  cardDeleteButtonElement.classList.toggle("card__delete-button_active");
   cardDeleteButtonElement.addEventListener("click", () => {
     cardElement.remove();
-    cardElement = null;
+  });
+
+  cardImageElement.addEventListener("click", () => {
+    console.log(previewImageElement);
+    previewImageElement.src = data.link;
+    previewImageElement.alt = data.name;
+    previewTitleElement.textContent = data.name;
+
+    openModal(previewModal);
   });
 
   return cardElement;

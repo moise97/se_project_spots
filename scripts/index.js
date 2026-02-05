@@ -95,7 +95,7 @@ const linkInput = addCardFormElement.querySelector("#card-image-input");
 
 //last part of the project//
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseButtton = previewModal.querySelector(".modal-close");
+const previewModalCloseButtton = previewModal.querySelector(".modal__close");
 const previewImageElement = previewModal.querySelector(".modal__image");
 const previewTitleElement = previewModal.querySelector(".modal__title");
 
@@ -105,6 +105,9 @@ const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
+previewModalCloseButtton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".card__title");

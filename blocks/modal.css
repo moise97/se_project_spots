@@ -36,29 +36,28 @@
   box-sizing: border-box;
 }
 .modal__close {
-  top: 22px;
-  right: 12px;
+  top: 36px;
+  right: 50px;
   position: absolute;
-  top: 14px;
-  right: 12px;
   height: 40px;
   width: 40px;
   border: none;
-  background: transparent;
+  background: transparent url("../images/closebutton_light.svg") center
+    no-repeat;
+  background-size: 35px 35px;
+  cursor: pointer;
 }
-
-.modal__close-button {
-  position: absolute;
-  top: 14px;
-  right: 12px;
-  height: 40px;
-  width: 40px;
-  border: none;
-  background: transparent;
+.modal__close:hover {
+  background: transparent url("../images/close_Icon.svg") center no-repeat;
 }
 
 .modal__title {
   margin: 0 0 32px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(33, 33, 33, 1);
+  padding: 4px 8px;
+  display: inline-block;
 }
 .modal__form {
   display: flex;
@@ -142,6 +141,6 @@
     right: 0;
   }
   .modal__image {
-    max-width: unset;
+    max-width: 288px;
   }
 }

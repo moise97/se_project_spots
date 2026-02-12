@@ -11,6 +11,7 @@
   width: 413px;
   object-fit: cover;
   border-radius: 8px;
+  cursor: pointer;
 }
 .card__content {
   display: flex;
@@ -26,7 +27,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 353px;
 }
 .card__delete-button {
   width: 32px;
@@ -41,13 +41,13 @@
 }
 
 .card__delete-button_active {
-  background-image: url(../images/deleteDefaultbutton.svg);
+  background-image: url(../images/DeleteDefaultbutton.svg);
   opacity: 1;
 }
 .card__delete-button:hover {
   opacity: 100%;
   cursor: pointer;
-  background-image: url(../images/hoverdeletebutton.svg);
+  background-image: url(../images/Hoverdeletebutton.svg);
 }
 
 .card__like-button {
@@ -56,9 +56,11 @@
   height: 20px;
   background-color: transparent;
   border: none;
-  opacity: 40%;
+  opacity: 0.4;
   margin-top: 12px;
   padding: 0;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card__like-button:hover {
@@ -69,6 +71,8 @@
 .card__like-button_active {
   background-image: url(../images/likedredbutton.svg);
   opacity: 1;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card__like-button_active:hover {

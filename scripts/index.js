@@ -1,7 +1,7 @@
 const initialCards = [
   {
     name: "Golden Gate Bridge",
-    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
   {
     name: "Val Thorens",
@@ -33,27 +33,27 @@ const initialCards = [
 const editProfileButton = document.querySelector(".profile__edit-button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileCloseButton = editProfileModal.querySelector(
-  ".modal__close-button",
-);
+const editProfileCloseButton = editProfileModal.querySelector(".modal__close");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input",
 );
-const editProfiledescriptionInput = editProfileModal.querySelector(
+const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
 
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
 
-const newPostCloseButton = newPostModal.querySelector(".modal__close-button");
+const newPostCloseButton = newPostModal.querySelector(".modal__close");
 const profileNameElement = document.querySelector(".profile__name");
 
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
-
+const newPostForm = newPostModal.querySelector(".modal__form");
+const captionInputElement = newPostForm.querySelector("#caption-input");
+const inputUrlElement = newPostForm.querySelector("#card-image-input");
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -64,7 +64,7 @@ function closeModal(modal) {
 
 editProfileButton.addEventListener("click", function () {
   editProfileNameInput.value = profileNameElement.textContent;
-  editProfiledescriptionInput.value = profileDescriptionElement.textContent;
+  editProfileDescriptionInput.value = profileDescriptionElement.textContent;
   openModal(editProfileModal);
 });
 editProfileCloseButton.addEventListener("click", function () {
@@ -95,7 +95,7 @@ const linkInput = addCardFormElement.querySelector("#card-image-input");
 
 //last part of the project//
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseButtton = previewModal.querySelector(".modal__close");
+const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const previewImageElement = previewModal.querySelector(".modal__image");
 const previewTitleElement = previewModal.querySelector(".modal__title");
 
@@ -105,7 +105,7 @@ const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
-previewModalCloseButtton.addEventListener("click", () => {
+previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 function getCardElement(data) {
@@ -117,13 +117,13 @@ function getCardElement(data) {
   cardImageElement.alt = data.name;
   cardTitleElement.textContent = data.name;
 
-  const cardlikebuttonElement = cardElement.querySelector(".card__like-button");
+  const cardLikeButtonElement = cardElement.querySelector(".card__like-button");
   const cardDeleteButtonElement = cardElement.querySelector(
     ".card__delete-button",
   );
 
-  cardlikebuttonElement.addEventListener("click", () => {
-    cardlikebuttonElement.classList.toggle("card__like-button_active");
+  cardLikeButtonElement.addEventListener("click", () => {
+    cardLikeButtonElement.classList.toggle("card__like-button_active");
   });
 
   cardDeleteButtonElement.classList.toggle("card__delete-button_active");
@@ -148,11 +148,12 @@ function handleAddCardSubmit(evt) {
 
   const inputValues = {
     name: captionInputElement.value,
-    link: inputElement.value,
+    link: inputUrlElement.value,
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-
+  captionInputElement.value = "";
+  inputUrlElement.value = "";
   closeModal(newPostModal);
 }
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);

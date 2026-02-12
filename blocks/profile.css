@@ -24,7 +24,7 @@
   font-size: 16px;
   line-height: 100%;
   font-weight: 500;
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .profile__name {
@@ -45,7 +45,7 @@
   padding: 18px 24px 18px 32px;
   border-radius: 8px;
   background: #212121;
-  border: none;
+
   color: #fff;
   font-size: 16px;
   margin-left: auto;
@@ -55,6 +55,7 @@
   border: none;
   cursor: pointer;
 }
+
 .profile__add-button:hover {
   background-color: rgba(33, 33, 33, 0.8);
 }
@@ -76,9 +77,12 @@
   font-weight: 500;
   color: #212121;
   cursor: pointer;
-  opacity: 70%;
+  opacity: 0.7;
   border: none;
   margin-top: auto;
+  padding: 0;
+}
+.profile__edit-button:hover {
   padding: 0;
 }
 
@@ -124,7 +128,7 @@
     margin-left: 0;
     max-width: 288px;
     width: 100%;
-    padding: 18px 32px 18px 32px;
+    padding: 18px 32px;
     width: 288px;
   }
   .profile__edit-button {

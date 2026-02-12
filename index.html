@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@
       </footer>
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-button">
+          <button type="button" class="modal__close">
             <img src="./images/close_icon.svg" alt="" class="" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
@@ -72,6 +72,7 @@
                 type="text"
                 class="modal__input"
                 placeholder="Type your name"
+                required
               />
             </label>
             <label for="profile-description-input" class="modal__label">
@@ -81,6 +82,7 @@
                 type="text"
                 class="modal__input"
                 placeholder="Describe Yourself"
+                required
               />
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
@@ -89,18 +91,19 @@
       </div>
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-button">
+          <button type="button" class="modal__close">
             <img src="./images/close_icon.svg" alt="close icon" class="" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form class="modal__form">
-            <label for="card-image -input" class="modal__label">
+            <label for="card-image-input" class="modal__label">
               Image link
               <input
                 id="card-image-input"
                 type="url"
                 class="modal__input"
                 placeholder="Place the link to the picture "
+                required
               />
             </label>
             <label for="caption-input" class="modal__label">
@@ -110,6 +113,7 @@
                 type="text"
                 class="modal__input"
                 placeholder="Describe Yourself"
+                required
               />
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
@@ -118,19 +122,16 @@
       </div>
     </div>
 
+    <div class="modal modal_type_preview" id="preview-modal">
+      <div class="modal__image-Container">
+        <button
+          aria-label="close-modal"
+          class="modal__close modal__close_type_preview"
+          type="button"
+        ></button>
+        <img src="#" alt="" class="modal__image" />
 
-      <div class="modal modal_type_preview" id="preview-modal">
-        <div class="modal__Image_Container">
-          <button
-          aria-label="close-modal modal__close_type_preview"
-          class="modal__close"
-          type="button">
-        </button>
-        <img src="#",
-   alt="" class="modal__image">
-
-          <p class="modal__title">ABC</p>
-        </div>
+        <p class="modal__caption"></p>
       </div>
     </div>
 

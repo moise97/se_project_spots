@@ -76,14 +76,7 @@
   box-sizing: border-box;
   border: 1px solid #21212166;
 }
-.modal__submit-button {
-  background: #212121;
-  color: #fff;
-  cursor: pointer;
-  padding: 18px 32px;
-  max-width: 156px;
-  width: 100%;
-}
+
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.4);
 }
@@ -111,6 +104,10 @@
   color: white;
 }
 
+.modal__submit-button:hover {
+  cursor: pointer;
+}
+
 .modal__submit-button {
   padding: 18px 32px 18px 32px;
   border-radius: 8px;
@@ -119,6 +116,8 @@
   background: #212121;
   color: #fff;
   border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 @media screen and (max-width: 630px) {

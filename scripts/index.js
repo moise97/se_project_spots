@@ -90,7 +90,6 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 const addCardFormElement = newPostModal.querySelector(".modal__form");
 
-const nameInput = addCardFormElement.querySelector("#caption-input");
 const linkInput = addCardFormElement.querySelector("#card-image-input");
 
 //last part of the project//

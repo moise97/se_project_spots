@@ -96,7 +96,7 @@ const linkInput = addCardFormElement.querySelector("#card-image-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const previewImageElement = previewModal.querySelector(".modal__image");
-const previewTitleElement = previewModal.querySelector(".modal__title");
+const previewTitleElement = previewModal.querySelector(".modal__caption");
 
 //first part of final part of project//
 

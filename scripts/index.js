@@ -80,7 +80,7 @@ newPostCloseButton.addEventListener("click", function () {
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = editProfileNameInput.value;
-  profileDescriptionElement.textContent = editProfiledescriptionInput.value;
+  profileDescriptionElement.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
 }
 

@@ -77,10 +77,11 @@
   color: rgba(33, 33, 33, 0.4);
 }
 .modal__close_type_preview {
-  background: url(../images/closebutton_light.svg);
+  background-image: url(../images/closebutton_light.svg);
   top: 0;
   color: rgba(255, 255, 255, 1);
   right: -52.5px;
+  background-repeat: no-repeat;
 }
 
 .modal__button:hover {
@@ -140,7 +141,7 @@
   .modal__submit-button {
     max-width: none;
   }
-  .modal__close-button {
+  .modal__close {
     width: 40px;
     top: 12px;
     right: 12px;

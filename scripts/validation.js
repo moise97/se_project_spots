@@ -76,5 +76,27 @@ const enableValidation = (config) => {
     setEventListeners(formElement, config);
   });
 };
+const resetValidation = (formEl, config) => {
+  // Step 1: Find all inputs in the form
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
 
+  // Step 2: Find the submit button
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+
+  // Step 3: Cleans it
+  inputList.forEach((inputElement) => {
+    // Remove error styling from input
+    inputElement.classList.remove(config.inputErrorClass);
+
+    // Find and clear the error message
+    const errorElement = formEl.querySelector(`.${inputElement.id}-error`);
+    if (errorElement) {
+      errorElement.textContent = "";
+      errorElement.classList.remove(config.errorClass);
+    }
+  });
+
+  // Step 4: Reset submit button state
+  toggleButtonState(inputList, buttonElement, config);
+};
 enableValidation(settings);

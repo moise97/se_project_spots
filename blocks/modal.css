@@ -76,16 +76,20 @@
 }
 
 .modal__input_type_error {
-  border: 1px solid rgba(255, 0, 0, 0, 6);
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.4);
 }
 .modal__error {
-  display: block;
+  display: none;
   color: red;
   margin-top: 8px;
 }
+.modal__error_visible {
+  display: block;
+}
+
 .modal__close_type_preview {
   background-image: url(../images/closebutton_light.svg);
   top: 0;
@@ -114,7 +118,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   opacity: 1;
   border-radius: 8px;
   padding-top: 4px;

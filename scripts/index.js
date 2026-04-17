@@ -52,7 +52,7 @@ const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
-const newPostForm = newPostModal.querySelector(".modal__form");
+const addCardSubmitButton = newPostModal.querySelector(".modal__submit-button");
 const captionInputElement = newPostForm.querySelector("#caption-input");
 const inputUrlElement = newPostForm.querySelector("#card-image-input");
 
@@ -66,17 +66,6 @@ const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const previewImageElement = previewModal.querySelector(".modal__image");
 const previewTitleElement = previewModal.querySelector(".modal__caption");
 const cardTemplate = document.querySelector("#card-template");
-
-/* --- STEP 1: Define the Escape Logic --- */
-// Place this before openModal so the computer knows what it is
-function handleEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_is-opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
-}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -158,7 +147,6 @@ function getCardElement(data) {
   });
 
   cardImageElement.addEventListener("click", () => {
-    console.log(previewImageElement);
     previewImageElement.src = data.link;
     previewImageElement.alt = data.name;
     previewTitleElement.textContent = data.name;
@@ -186,16 +174,13 @@ function handleAddCardSubmit(evt) {
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
-allModals.forEach((modal) => {
+allModals.forEach((modal) =>
   modal.addEventListener("mousedown", (evt) => {
-    if (
-      evt.target.classList.contains("modal_is-opened") ||
-      evt.target.classList.contains("modal__close")
-    ) {
-      closeModal(modal);
+    if (evt.target.classList.contains("modal")) {
+      closeModal(evt.target);
     }
-  });
-});
+  }),
+);
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);

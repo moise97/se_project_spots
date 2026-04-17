@@ -30,6 +30,7 @@ const initialCards = [
   },
 ];
 
+const allModals = document.querySelectorAll(".modal");
 const editProfileButton = document.querySelector(".profile__edit-button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -54,12 +55,39 @@ const profileDescriptionElement = document.querySelector(
 const newPostForm = newPostModal.querySelector(".modal__form");
 const captionInputElement = newPostForm.querySelector("#caption-input");
 const inputUrlElement = newPostForm.querySelector("#card-image-input");
+
+const addCardFormElement = newPostModal.querySelector(".modal__form");
+const addCardButton = newPostModal.querySelector(".modal__button");
+const linkInput = addCardFormElement.querySelector("#card-image-input");
+
+//last part of the project//
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseButton = previewModal.querySelector(".modal__close");
+const previewImageElement = previewModal.querySelector(".modal__image");
+const previewTitleElement = previewModal.querySelector(".modal__caption");
+const cardTemplate = document.querySelector("#card-template");
+
+/* --- STEP 1: Define the Escape Logic --- */
+// Place this before openModal so the computer knows what it is
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+
+  document.removeEventListener("keydown", handleEscape);
 }
 
 editProfileButton.addEventListener("click", function () {
@@ -67,12 +95,15 @@ editProfileButton.addEventListener("click", function () {
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
   openModal(editProfileModal);
 });
+
 editProfileCloseButton.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
+
 newPostButton.addEventListener("click", function () {
   openModal(newPostModal);
 });
+
 newPostCloseButton.addEventListener("click", function () {
   closeModal(newPostModal);
 });
@@ -84,31 +115,27 @@ function handleEditProfileSubmit(evt) {
   closeModal(editProfileModal);
 }
 
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    closeModal(openedModal);
+  }
+}
 // trying things out //
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
-const addCardFormElement = newPostModal.querySelector(".modal__form");
-
-const linkInput = addCardFormElement.querySelector("#card-image-input");
-
-//last part of the project//
-const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseButton = previewModal.querySelector(".modal__close");
-const previewImageElement = previewModal.querySelector(".modal__image");
-const previewTitleElement = previewModal.querySelector(".modal__caption");
-
 //first part of final part of project//
-
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
+
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
 
@@ -153,9 +180,22 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
   captionInputElement.value = "";
   inputUrlElement.value = "";
+
   closeModal(newPostModal);
 }
+
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
+
+allModals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (
+      evt.target.classList.contains("modal_is-opened") ||
+      evt.target.classList.contains("modal__close")
+    ) {
+      closeModal(modal);
+    }
+  });
+});
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);

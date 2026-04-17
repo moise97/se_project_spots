@@ -61,6 +61,8 @@
 }
 .modal__label {
   margin: 0 0 32px;
+  margin-bottom: 32px;
+  display: block;
 }
 .modal__input {
   display: block;
@@ -73,8 +75,16 @@
   border: 1px solid #21212166;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0, 6);
+}
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.4);
+}
+.modal__error {
+  display: block;
+  color: red;
+  margin-top: 8px;
 }
 .modal__close_type_preview {
   background-image: url(../images/closebutton_light.svg);
@@ -115,6 +125,9 @@
   width: fit-content;
 }
 
+.modal__submit-button_disabled {
+  opacity: 0.6;
+}
 .modal__submit-button:hover {
   cursor: pointer;
 }

@@ -53,10 +53,10 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
 const addCardSubmitButton = newPostModal.querySelector(".modal__submit-button");
-const captionInputElement = newPostForm.querySelector("#caption-input");
-const inputUrlElement = newPostForm.querySelector("#card-image-input");
-
 const addCardFormElement = newPostModal.querySelector(".modal__form");
+const captionInputElement = addCardFormElement.querySelector("#caption-input");
+const inputUrlElement = addCardFormElement.querySelector("#card-image-input");
+
 const addCardButton = newPostModal.querySelector(".modal__button");
 const linkInput = addCardFormElement.querySelector("#card-image-input");
 

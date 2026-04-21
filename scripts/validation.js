@@ -86,14 +86,7 @@ const resetValidation = (formEl, config) => {
   // Step 3: Cleans it
   inputList.forEach((inputElement) => {
     // Remove error styling from input
-    inputElement.classList.remove(config.inputErrorClass);
-
-    // Find and clear the error message
-    const errorElement = formEl.querySelector(`.${inputElement.id}-error`);
-    if (errorElement) {
-      errorElement.textContent = "";
-      errorElement.classList.remove(config.errorClass);
-    }
+    hideInputError(formEl, inputElement, config);
   });
 
   // Step 4: Reset submit button state

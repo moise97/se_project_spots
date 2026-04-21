@@ -82,6 +82,9 @@ function closeModal(modal) {
 editProfileButton.addEventListener("click", function () {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+
+  resetValidation(editProfileFormElement, settings);
+
   openModal(editProfileModal);
 });
 
@@ -159,15 +162,14 @@ function getCardElement(data) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-
   const inputValues = {
     name: captionInputElement.value,
     link: inputUrlElement.value,
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  captionInputElement.value = "";
-  inputUrlElement.value = "";
+
+  evt.target.reset();
 
   closeModal(newPostModal);
 }

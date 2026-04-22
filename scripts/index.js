@@ -162,14 +162,18 @@ function getCardElement(data) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+
   const inputValues = {
     name: captionInputElement.value,
     link: inputUrlElement.value,
   };
+
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
   evt.target.reset();
+
+  resetValidation(addCardFormElement, settings);
 
   closeModal(newPostModal);
 }

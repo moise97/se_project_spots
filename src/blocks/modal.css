@@ -42,7 +42,7 @@
   height: 40px;
   width: 40px;
   border: none;
-  background: transparent url("../images/close_icon.svg") center no-repeat;
+  background: transparent url("../images/close_Icon.svg") center no-repeat;
   background-size: 35px 35px;
   cursor: pointer;
 }

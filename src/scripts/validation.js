@@ -92,4 +92,4 @@ const resetValidation = (formEl, config) => {
   // Step 4: Reset submit button state
   toggleButtonState(inputList, buttonElement, config);
 };
-enableValidation(settings);
+export { enableValidation, resetValidation, settings };

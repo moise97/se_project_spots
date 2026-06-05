@@ -1,0 +1,38 @@
+{
+  "name": "se_project_spots-2026",
+  "version": "1.0.0",
+  "description": "se_project__spots_continuation",
+  "keywords": [
+    "MnM"
+  ],
+  "homepage": "https://github.com/moise97/se_project_spots#readme",
+  "bugs": {
+    "url": "https://github.com/moise97/se_project_spots/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moise97/se_project_spots.git"
+  },
+  "license": "ISC",
+  "author": "Moise Michaud",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "autoprefixer": "^10.4.16",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

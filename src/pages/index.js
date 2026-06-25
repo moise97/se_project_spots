@@ -100,6 +100,8 @@ newPostCloseButton.addEventListener("click", function () {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+  const submitButton = editProfileForm.querySelector(".modal__submit-button");
+  renderLoading(true, submitButton);
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -110,7 +112,8 @@ function handleEditProfileSubmit(evt) {
       profileDescriptionElement.textContent = userData.about;
       closeModal(editProfileModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => renderLoading(false, submitButton));
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
@@ -182,6 +185,10 @@ function getCardElement(data) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const submitButton = addCardFormElement.querySelector(
+    ".modal__submit-button",
+  );
+  renderLoading(true, submitButton);
   api
     .addCard({
       name: captionInputElement.value,
@@ -194,9 +201,9 @@ function handleAddCardSubmit(evt) {
       resetValidation(addCardFormElement, settings);
       closeModal(newPostModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => renderLoading(false, submitButton));
 }
-
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 allModals.forEach((modal) =>
@@ -217,19 +224,23 @@ cancelDeleteButton.addEventListener("click", () => {
 
 deleteForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+  const submitButton = deleteForm.querySelector(".modal__submit-button");
+  renderLoading(true, submitButton, "Yes, delete");
   api
     .removeCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => renderLoading(false, submitButton, "Yes, delete"));
 });
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     profileNameElement.textContent = userData.name;
     profileDescriptionElement.textContent = userData.about;
+    profileAvatarElement.src = userData.avatar;
 
     cards.forEach((card) => {
       const cardElement = getCardElement(card);
@@ -247,6 +258,8 @@ avatarModalCloseButton.addEventListener("click", () => {
 
 avatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+  const submitButton = avatarForm.querySelector(".modal__submit-button");
+  renderLoading(true, submitButton);
   api
     .updateAvatar(avatarInput.value)
     .then((userData) => {
@@ -254,7 +267,15 @@ avatarForm.addEventListener("submit", (evt) => {
       closeModal(avatarModal);
       avatarForm.reset();
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => renderLoading(false, submitButton));
 });
 
+function renderLoading(isLoading, button, defaultText = "Save") {
+  if (isLoading) {
+    button.textContent = "Saving...";
+  } else {
+    button.textContent = defaultText;
+  }
+}
 enableValidation(settings);

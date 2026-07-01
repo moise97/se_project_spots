@@ -225,4 +225,12 @@
   .modal__image {
     max-width: 288px;
   }
+  .modal__form_type_delete {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .modal__container_type_delete {
+    max-width: 300px;
+    padding: 12px 20px 20px;
+  }
 }

@@ -77,19 +77,14 @@ const enableValidation = (config) => {
   });
 };
 const resetValidation = (formEl, config) => {
-  // Step 1: Find all inputs in the form
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
 
-  // Step 2: Find the submit button
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
-  // Step 3: Cleans it
   inputList.forEach((inputElement) => {
-    // Remove error styling from input
     hideInputError(formEl, inputElement, config);
   });
 
-  // Step 4: Reset submit button state
   toggleButtonState(inputList, buttonElement, config);
 };
 export { enableValidation, resetValidation, settings };

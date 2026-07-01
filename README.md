@@ -37,6 +37,7 @@ Check out these videos, where I describe my project and some challenges I faced 
 
 - [Spots Stage 2 Pitch](https://drive.google.com/file/d/1K_Kfwh-7xRiyaCGlSvr3afaQXshjygB2/view?usp=drivesdk)
 - [Spots stage 3](https://drive.google.com/file/d/1yCKZR02fnOAERunNhec4zlLFMzvpZ_aE/view?usp=drive_link)
+
 - [Spots Final Stage Pitch](https://drive.google.com/file/d/1igAJd_I7aYBhkPQCtKW5Bi3EwEzl_MwB/view?usp=sharing)
 
 ## Plan on improving the project

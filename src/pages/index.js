@@ -236,7 +236,8 @@ deleteForm.addEventListener("submit", (evt) => {
     .finally(() => renderLoading(false, submitButton, "Yes, delete"));
 });
 
-Promise.all([api.getUserInfo(), api.getInitialCards()])
+api
+  .getAppInfo()
   .then(([userData, cards]) => {
     profileNameElement.textContent = userData.name;
     profileDescriptionElement.textContent = userData.about;
@@ -266,6 +267,8 @@ avatarForm.addEventListener("submit", (evt) => {
       profileAvatarElement.src = userData.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
+      submitButton.disabled = true;
+      submitButton.classList.add("modal__submit-button_disabled");
     })
     .catch(console.error)
     .finally(() => renderLoading(false, submitButton));
